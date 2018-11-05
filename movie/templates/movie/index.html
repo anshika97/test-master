@@ -1,0 +1,17 @@
+{% extends 'movie/base.html' %}
+{% block title %} All Movies {% endblock %}
+{% block body %}
+<div>
+    <h1>Movies Ratings</h1>
+    <a href="{% url 'movie:new_movie' %}" class = "button">Add New Movie</a>
+    <ul style ="list-style-type:none" id = "menu">
+    {% for movie in movies_list %}
+        <li>
+        <img src="{{ movie.cover_photo.url }}" style="height: 200px;" />
+        <li><a  href="{% url 'movie:movie_detail' movie.id %}" class = "title">{{movie.title}}</a></li>
+        </li>
+        <br>
+    {% endfor %}
+    </ul>
+</div>  
+{% endblock %}

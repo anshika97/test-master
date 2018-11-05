@@ -1,0 +1,9 @@
+<h2 style="clear:both;">{{staff_heading}}</h2>
+<a href="{% url 'movie:add_movie_staff' movie_id=movie.id staff_type=staff_type %}">Add {{staff_label}}</a><br/>
+{% for staff in staff_list %}
+    <div style="float: left; width: 250px; border: 1px solid black; padding: 4px;">
+        <h3>{{staff.name}} (DOB: {{staff.dob|date:"M d, Y"}})</h3>
+        <img src="{{ staff.photo.url }}" style="width: 100%; height: auto;" />
+        <p>{{ staff.bio }}</p>
+    </div>
+{% endfor %}

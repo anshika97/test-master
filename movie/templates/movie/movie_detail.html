@@ -1,0 +1,13 @@
+{% extends 'movie/base.html' %}
+{% block title %} {{ movie.title }} {% endblock %}
+{% block body %}
+    <h1>Detail</h1>
+    <h2>{{ movie.title }}</h2>
+    <img src="{{ movie.cover_photo.url }}" style="height: 200px;" />
+    <p>Release Date: {{movie.release_date|date:"M d, Y"}}</p>
+    <p>Rating: <img src="{{rating_img_url}}" style="height: 30px;" /></p>
+    <p>{{ movie.description }}</p>
+    {% include 'movie/partials/_staff_info.html' with staff_list=directors staff_type='director' staff_heading='Directors' staff_label='Director' %}
+    {% include 'movie/partials/_staff_info.html' with staff_list=writers staff_type='writer' staff_heading='Writers' staff_label='Writer' %}
+    {% include 'movie/partials/_staff_info.html' with staff_list=actors staff_type='actor' staff_heading='Actors' staff_label='Actor' %}
+{% endblock %}
